@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>홍길동 | 프로덕트 디자이너</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3B4BF9',
+            dark: '#0a0a0a',
+          },
+          fontFamily: {
+            sans: ['"Pretendard"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          maxWidth: {
+            'site': '1920px',
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-dark font-sans antialiased">
+
+  <!-- Navigation (Full Grid) -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
+    <div class="w-full px-8 md:px-12 py-5 flex items-center justify-between">
+      <a href="#hero" class="text-xl font-black tracking-tight text-white">GD<sup class="text-xs">®</sup></a>
+      <button id="menu-toggle" class="flex items-center gap-2 text-white text-sm font-medium" aria-label="메뉴 열기">
+        <span class="hamburger-icon flex flex-col gap-1">
+          <span class="block w-5 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+          <span class="block w-5 h-0.5 bg-current transition-all duration-300"></span>
+        </span>
+        Menu
+      </button>
+    </div>
+  </nav>
+
+  <!-- Full Screen Menu (body 직속 자식으로 배치) -->
+  <div id="full-menu" class="fixed inset-0 bg-primary flex-col items-center justify-center">
+    <button id="menu-close" class="absolute top-5 right-8 md:right-12 text-white text-sm font-medium flex items-center gap-2">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      Close
+    </button>
+    <ul class="flex flex-col items-center gap-8 text-4xl md:text-6xl font-black text-white uppercase">
+      <li><a href="#about" class="menu-link hover:opacity-60 transition-opacity">About</a></li>
+      <li><a href="#skills" class="menu-link hover:opacity-60 transition-opacity">Skills</a></li>
+      <li><a href="#projects" class="menu-link hover:opacity-60 transition-opacity">Projects</a></li>
+      <li><a href="#contact" class="menu-link hover:opacity-60 transition-opacity">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section (Full Grid with Blue BG) -->
+  <section id="hero" class="relative w-full min-h-screen bg-primary overflow-hidden flex flex-col">
+    <!-- Background decorative text -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+      <span class="text-[20vw] font-black text-white/10 uppercase whitespace-nowrap leading-none">DESIGN</span>
+    </div>
+    <!-- Background image overlay -->
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 mix-blend-multiply">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80" alt="" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative flex-1 flex items-center px-8 md:px-12 max-w-site mx-auto w-full">
+      <div class="max-w-4xl">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white uppercase leading-[0.95] tracking-tight animate-fade-in">
+          Crafting<br>
+          Visual<br>
+          Experiences<br>
+          <span class="text-white/80">That Speak</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Hero Bottom Bar -->
+    <div class="relative w-full px-8 md:px-12 pb-8 flex items-end justify-between">
+      <!-- SNS Icons -->
+      <div class="flex items-center gap-4">
+        <a href="#" aria-label="Facebook" class="text-white/70 hover:text-white transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="text-white/70 hover:text-white transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="text-white/70 hover:text-white transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg>
+        </a>
+        <a href="#" aria-label="GitHub" class="text-white/70 hover:text-white transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+      </div>
+      <!-- CTA -->
+      <a href="#contact" class="hidden sm:inline-block bg-dark text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition-colors">
+        Let's Connect
+      </a>
+      <!-- Copyright -->
+      <span class="text-white/50 text-xs hidden md:block">&copy;2026. All Rights Reserved</span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 md:py-32 px-8 md:px-12 bg-stone-100">
+    <div class="max-w-site mx-auto">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[1.05] mb-16 scroll-animate">
+        A Designer Who<br>Thinks Beyond<br>Aesthetics
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-start">
+        <!-- Stats -->
+        <div class="md:col-span-3 scroll-animate">
+          <div class="mb-2">
+            <span class="text-xs text-gray-500 uppercase tracking-wider">Projects completed</span>
+          </div>
+          <div class="text-6xl md:text-7xl font-black mb-6">25+</div>
+
+          <div class="mb-2">
+            <span class="text-xs text-gray-500 uppercase tracking-wider">Client satisfaction</span>
+          </div>
+          <div class="text-6xl md:text-7xl font-black mb-6">95%</div>
+
+          <div class="mb-2">
+            <span class="text-xs text-gray-500 uppercase tracking-wider">International clients</span>
+          </div>
+          <div class="text-6xl md:text-7xl font-black">5+</div>
+        </div>
+
+        <!-- Center Image -->
+        <div class="md:col-span-4 scroll-animate">
+          <div class="rounded-3xl overflow-hidden aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="홍길동 프로필" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="md:col-span-5 flex flex-col justify-between h-full scroll-animate">
+          <div class="mb-8">
+            <p class="text-gray-500 leading-relaxed mb-6">
+              2년 이상의 디자인 경력을 통해 디지털 프로덕트부터 브랜딩, 마케팅 비주얼까지 다양한 프로젝트를 수행해왔습니다.
+            </p>
+            <p class="text-gray-500 leading-relaxed">
+              사람을 이해하고, 문제를 해결하며, 감성적으로 연결되는 비주얼을 만드는 것이 저의 접근 방식입니다.
+            </p>
+          </div>
+          <h3 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[1.05] mt-auto">
+            Working With<br>Fun, Amazing<br>Results
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects / Portfolio Section -->
+  <section id="projects" class="py-24 md:py-32 px-8 md:px-12 bg-white">
+    <div class="max-w-site mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article class="scroll-animate group">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-gray-100">
+            <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80" alt="모바일 앱 리디자인" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <h3 class="text-xl font-bold mb-1">모바일 앱 리디자인</h3>
+          <p class="text-gray-500 text-sm">사용자 리서치 기반 모바일 커머스 앱 전면 리디자인. 전환율 35% 향상.</p>
+        </article>
+        <article class="scroll-animate group">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-gray-100">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="디자인 시스템 구축" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <h3 class="text-xl font-bold mb-1">디자인 시스템 구축</h3>
+          <p class="text-gray-500 text-sm">20개 이상 제품의 통합 디자인 시스템 설계 및 구축.</p>
+        </article>
+        <article class="scroll-animate group">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-gray-100">
+            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80" alt="브랜드 모션 그래픽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <h3 class="text-xl font-bold mb-1">브랜드 모션 그래픽</h3>
+          <p class="text-gray-500 text-sm">After Effects와 Blender를 활용한 브랜드 론칭 모션 그래픽 영상.</p>
+        </article>
+        <article class="scroll-animate group">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-gray-100">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="대시보드 UX 개선" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <h3 class="text-xl font-bold mb-1">대시보드 UX 개선</h3>
+          <p class="text-gray-500 text-sm">SaaS 관리자 대시보드 정보 구조 재설계. 태스크 완료 시간 40% 단축.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-24 md:py-32 px-8 md:px-12 bg-white border-t border-gray-200">
+    <div class="max-w-site mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <!-- Left: Skill List -->
+        <div class="md:col-span-7">
+          <span class="text-xs text-gray-400 uppercase tracking-wider mb-8 block scroll-animate">Skills</span>
+          <ul class="divide-y divide-gray-200 border-b border-gray-200" id="skill-list">
+            <li class="skill-item py-6 scroll-animate cursor-pointer transition-colors duration-300 hover:bg-gray-50 -mx-4 px-4 rounded-lg"
+                data-skill="uiux"
+                data-image="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&q=80"
+                data-tools="Figma,Adobe XD,Photoshop,Illustrator">
+              <span class="text-2xl sm:text-3xl md:text-4xl font-black uppercase">UI/UX Design</span>
+            </li>
+            <li class="skill-item py-6 scroll-animate cursor-pointer transition-colors duration-300 hover:bg-gray-50 -mx-4 px-4 rounded-lg"
+                data-skill="motion"
+                data-image="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80"
+                data-tools="After Effects,Premiere Pro,Illustrator,Photoshop">
+              <span class="text-2xl sm:text-3xl md:text-4xl font-black uppercase">Motion & Video</span>
+            </li>
+            <li class="skill-item py-6 scroll-animate cursor-pointer transition-colors duration-300 hover:bg-gray-50 -mx-4 px-4 rounded-lg"
+                data-skill="3d"
+                data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80"
+                data-tools="Blender,Photoshop,After Effects">
+              <span class="text-2xl sm:text-3xl md:text-4xl font-black uppercase">3D Modeling</span>
+            </li>
+            <li class="skill-item py-6 scroll-animate cursor-pointer transition-colors duration-300 hover:bg-gray-50 -mx-4 px-4 rounded-lg"
+                data-skill="ai"
+                data-image="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80"
+                data-tools="Cursor,Claude Code,Figma AI">
+              <span class="text-2xl sm:text-3xl md:text-4xl font-black uppercase">AI</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Dynamic Image + Tools (changes on hover) -->
+        <div class="md:col-span-5 scroll-animate">
+          <div id="skill-preview" class="sticky top-32">
+            <div class="rounded-2xl overflow-hidden aspect-square mb-6 bg-gray-100">
+              <img id="skill-preview-image" src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&q=80" alt="스킬 미리보기" class="w-full h-full object-cover transition-opacity duration-400">
+            </div>
+            <div id="skill-preview-tools" class="flex flex-wrap gap-2 transition-opacity duration-300">
+              <span class="skill-tool-badge px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Figma</span>
+              <span class="skill-tool-badge px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Adobe XD</span>
+              <span class="skill-tool-badge px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Photoshop</span>
+              <span class="skill-tool-badge px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Illustrator</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-24 md:py-32 px-8 md:px-12 bg-stone-100">
+    <div class="max-w-site mx-auto">
+      <div class="mb-16 scroll-animate">
+        <span class="text-xs text-gray-400 uppercase tracking-wider mb-6 block">Testimonials</span>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[1.05]">
+          The Smiling Client<br>From Around The World
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="scroll-animate">
+          <div class="text-5xl text-primary font-serif mb-4">&ldquo;</div>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            탁월한 디자인 퀄리티와 크리에이티브 디렉션을 보여주었습니다. 프로페셔널하고 직관적인 결과물이었습니다.
+          </p>
+          <p class="font-bold text-sm">김민수</p>
+          <p class="text-xs text-gray-400">스타트업 대표</p>
+        </div>
+        <div class="scroll-animate">
+          <div class="text-5xl text-primary font-serif mb-4">&ldquo;</div>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            미적 감각과 사용자 경험에 대한 깊은 이해가 돋보였습니다. 항상 기대 이상의 결과를 만들어냅니다.
+          </p>
+          <p class="font-bold text-sm">이수진</p>
+          <p class="text-xs text-gray-400">프로덕트 매니저</p>
+        </div>
+        <div class="scroll-animate">
+          <div class="text-5xl text-primary font-serif mb-4">&ldquo;</div>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            함께 일하기 정말 즐거운 분입니다. 작업물의 디테일이 남다르고, 커뮤니케이션이 원활합니다.
+          </p>
+          <p class="font-bold text-sm">박준혁</p>
+          <p class="text-xs text-gray-400">마케팅 디렉터</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA Section (Full Grid Blue) -->
+  <section id="contact" class="relative w-full bg-primary py-24 md:py-32 px-8 md:px-12 overflow-hidden">
+    <!-- Decorative line -->
+    <div class="absolute bottom-12 left-1/3 w-32 h-32 pointer-events-none opacity-30">
+      <svg viewBox="0 0 100 100" fill="none" stroke="white" stroke-width="2">
+        <path d="M10 90 L50 10 L90 90" />
+      </svg>
+    </div>
+
+    <div class="max-w-site mx-auto relative">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+        <div class="md:col-span-8">
+          <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white uppercase leading-[0.95] scroll-animate">
+            Let's Create<br>Something<br>Beautiful
+          </h2>
+        </div>
+        <div class="md:col-span-4 scroll-animate">
+          <p class="text-white/70 text-sm leading-relaxed mb-8">
+            프로젝트를 구상 중이시거나 단순히 대화를 나누고 싶으신가요?
+            협업, 프리랜스, 크리에이티브 논의 등 언제든 열려 있습니다.
+          </p>
+          <a href="mailto:hongildong@gmail.com" class="inline-block bg-dark text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-gray-800 transition-colors">
+            hongildong@gmail.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Full Grid) -->
+  <footer class="w-full bg-dark text-white py-8 px-8 md:px-12">
+    <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span class="font-black text-lg">GD<sup class="text-xs">®</sup></span>
+      <div class="flex items-center gap-5">
+        <a href="#" aria-label="GitHub" class="text-gray-400 hover:text-white transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok" class="text-gray-400 hover:text-white transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg>
+        </a>
+      </div>
+      <span class="text-gray-500 text-xs">&copy;2026 홍길동. All Rights Reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
